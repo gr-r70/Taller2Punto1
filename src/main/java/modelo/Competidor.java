@@ -44,5 +44,22 @@ public class Competidor {
     public int getPuntos() {return puntos;}
     public void setPuntos(int puntos) {this.puntos = puntos;}
     
+    public void actualizarRanking (int puntosObtenidos){
+        this.puntos += puntosObtenidos;
+        this.rankingMundial = Math.max(1, rankingMundial - (puntos / 10));
+    }
     
+    public String obtenerDatos(){
+        return "Nombre: " + nombre +
+               " | Edad: " + edad +
+               " | País: " + pais +
+               " | Ranking: " + rankingMundial +
+               " | Estatura: " + estatura +
+               " | Peso: " + peso +
+               " | Puntos: " + puntos;    
+    }
+    @Override
+    public String toString() {
+        return "Competidor: " + nombre + " | País: " + pais + " | Ranking: " + rankingMundial;
+    }
 }
