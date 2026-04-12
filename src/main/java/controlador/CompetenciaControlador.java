@@ -16,24 +16,23 @@ public class CompetenciaControlador {
         this.vista = vista;
     }
 
-    public void iniciar() {
-        String nombreEvento = vista.pedirNombreEvento();
-        competencia = new Competencia(nombreEvento);
+public void iniciar() {
+    competencia = new Competencia("Mundial de Ciclismo de Pista - Cali");
 
-        int opcion;
-        do {
-            opcion = vista.menuInicio();
-            switch (opcion) {
-                case 1: agregarEquipo();            break;
-                case 2: agregarCompetidor();        break;
-                case 3: verReporte();               break;
-                case 4: actualizarRanking();        break;
-                case 5: buscarCompetidor();         break;
-                case 6: vista.mostrarMensaje("Saliendo..."); break;
-                default: vista.mostrarMensaje("Opción inválida");
-            }
-        } while (opcion != 6);
-    }
+    int opcion;
+    do {
+        opcion = vista.menuInicio();
+        switch (opcion) {
+            case 1: agregarEquipo();        break;
+            case 2: agregarCompetidor();    break;
+            case 3: verReporte();           break;
+            case 4: actualizarRanking();    break;
+            case 5: buscarCompetidor();     break;
+            case 6: vista.mostrarMensaje("Saliendo..."); break;
+            default: vista.mostrarMensaje("Opción inválida");
+        }
+    } while (opcion != 6);
+}
 
     private void agregarEquipo() {
         String nombre = vista.pedirNombreEquipo();
@@ -62,18 +61,10 @@ public class CompetenciaControlador {
         int ranking    = vista.pedirRanking();
         double estatura = vista.pedirEstatura();
         double peso    = vista.pedirPeso();
-        int tipo       = vista.pedirTipo();
+        String categoria = vista.pedirCategoria();
 
-        if (tipo == 1) {
-            String categoria = vista.pedirCategoria();
-            equipo.agregarCompetidor(new CompetidorAficionado(
-                nombre, edad, pais, ranking, estatura, peso, categoria));
-        } else {
-            String equipoNombre = vista.pedirNombreEquipo();
-            int anios = vista.pedirAnios();
-            equipo.agregarCompetidor(new CompetidorProfesional(
-                nombre, edad, pais, ranking, estatura, peso, equipoNombre, anios));
-        }
+        equipo.agregarCompetidor(new CompetidorCategoria(
+        nombre, edad, pais, ranking, estatura, peso, categoria));
         vista.mostrarMensaje("Competidor agregado correctamente.");
     }
 
