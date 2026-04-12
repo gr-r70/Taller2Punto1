@@ -14,7 +14,7 @@ public class Competidor {
     private double peso;
     private int puntos;
     
-    public Competidor(String nombre, int edad,String pais,int rankingMundial ,double estatura ,double peso, int puntos)
+    public Competidor(String nombre, int edad, String pais,int rankingMundial ,double estatura ,double peso, int puntos)
     {  this.nombre=nombre;
        this.edad=edad;
        this.pais=pais;

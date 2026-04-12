@@ -14,8 +14,8 @@ public class CompetidorCategoria extends Competidor {
     public void setCategoria(String categoria) { this.categoria = categoria; }
 
     @Override
-    public String toString() {
-        return super.toString() + " | Categoría: " + categoria + " | Tipo: Categoria";
+    public String obtenerDatos() {
+        return super.obtenerDatos() + " | Categoría: " + categoria + " | Tipo: Categoria";
     }
 
     public String obtenerDatos(boolean mostrarCategoria) {

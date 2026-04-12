@@ -1,34 +1,28 @@
 package modelo;
 import java.util.List;
 public class CompetidorProfesional extends Competidor {
-    private String equipo;
     private int aniosProfesional;
 
     public CompetidorProfesional(String nombre, int edad, String pais,
-            int rankingMundial, double estatura, double peso,
-            String equipo, int aniosProfesional) {
+            int rankingMundial, double estatura, double peso, int aniosProfesional) {
         super(nombre, edad, pais, rankingMundial, estatura, peso, 0);
-        this.equipo = equipo;
         this.aniosProfesional = aniosProfesional;
     }
 
-    public String getEquipo() { return equipo; }
-    public void setEquipo(String equipo) { this.equipo = equipo; }
     public int getAniosProfesional() { return aniosProfesional; }
     public void setAniosProfesional(int aniosProfesional) { this.aniosProfesional = aniosProfesional; }
 
     // Sobreescritura con super
     @Override
-    public String toString() {
-        return super.toString() + " | Equipo: " + equipo
-             + " | Años profesional: " + aniosProfesional + " | Tipo: Profesional";
+    public String obtenerDatos() {
+        return super.obtenerDatos() + " | Años profesional: " + aniosProfesional;
     }
 
     // Sobrecarga 
     public String obtenerDatos(String etiqueta) {
         return "[" + etiqueta + "] " + obtenerDatos();
     }
-
+    
     // Sobrecarga-estructura anidada
     public String obtenerDatos(List<CompetidorProfesional> lista, int rankingLimite) {
         String resultado = "Profesionales con ranking mejor a " + rankingLimite + ":\n";
