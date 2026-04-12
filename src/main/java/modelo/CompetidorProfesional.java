@@ -24,12 +24,12 @@ public class CompetidorProfesional extends Competidor {
              + " | Años profesional: " + aniosProfesional + " | Tipo: Profesional";
     }
 
-    // Sobrecarga 1 - simple
+    // Sobrecarga 
     public String obtenerDatos(String etiqueta) {
         return "[" + etiqueta + "] " + obtenerDatos();
     }
 
-    // Sobrecarga 2 - con estructura anidada
+    // Sobrecarga-estructura anidada
     public String obtenerDatos(List<CompetidorProfesional> lista, int rankingLimite) {
         String resultado = "Profesionales con ranking mejor a " + rankingLimite + ":\n";
         for (CompetidorProfesional c : lista) {              // bucle exterior
