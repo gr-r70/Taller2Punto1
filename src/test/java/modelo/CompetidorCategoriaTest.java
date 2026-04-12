@@ -32,17 +32,23 @@ public class CompetidorCategoriaTest {
         assertTrue(resultado.contains("Categoria"));
     }
 
-    // Prueba sobrecarga obtenerDatos(boolean) con true
     @Test
     public void testObtenerDatosConCategoria() {
         String resultado = competidor.obtenerDatos(true);
         assertTrue(resultado.contains("Sub-23"));
     }
 
-    // Prueba sobrecarga obtenerDatos(boolean) con false
     @Test
     public void testObtenerDatosSinCategoria() {
         String resultado = competidor.obtenerDatos(false);
+        assertTrue(resultado.contains("Ana Lopez"));
+    }
+
+    // Nuevo test: obtenerDatos() base muestra categoría
+    @Test
+    public void testObtenerDatosMuestraCategoria() {
+        String resultado = competidor.obtenerDatos();
+        assertTrue(resultado.contains("Sub-23"));
         assertTrue(resultado.contains("Ana Lopez"));
     }
 }

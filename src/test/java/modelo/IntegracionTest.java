@@ -14,19 +14,24 @@ public class IntegracionTest {
     private Equipo equipo;
     private CompetidorCategoria c1;
     private CompetidorProfesional c2;
-
+    
+    
     @Before
     public void setUp() {
-        // Crear competencia
         competencia = new Competencia("Mundial de Ciclismo de Pista - Cali");
-
-        // Crear equipo
         equipo = new Equipo("Team Colombia", "Colombia");
-
         // Crear un objeto de cada subclase
         c1 = new CompetidorCategoria("Carlos Ramirez", 22, "Colombia", 10, 1.75, 68.0, "Sub-23");
-        c2 = new CompetidorProfesional("Julian Alaphilippe", 31, "Francia", 2, 1.73, 62.0, "Soudal", 8);
+        c2 = new CompetidorProfesional("Julian Alaphilippe", 31, "Francia", 2, 1.73, 62.0, 8); // ← sin "Soudal"
     }
+
+    // obtenerDatos muestra info de cada subclase
+    @Test
+    public void testObtenerDatosMuestraInfoSubclase() {
+        assertTrue(c1.obtenerDatos().contains("Sub-23"));
+        assertTrue(c2.obtenerDatos().contains("8"));
+    }
+
 
     // Prueba agregar equipo a competencia
     @Test

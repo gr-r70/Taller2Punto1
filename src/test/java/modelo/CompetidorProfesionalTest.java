@@ -15,35 +15,21 @@ public class CompetidorProfesionalTest {
     @Before
     public void setUp() {
         competidor = new CompetidorProfesional(
-            "Julian Alaphilippe", 31, "Francia", 2, 1.73, 62.0, "Soudal", 8);
+            "Julian Alaphilippe", 31, "Francia", 2, 1.73, 62.0, 8);
     }
 
-    // Prueba que el equipo se guarda
     @Test
-    public void testGetEquipo() {
-        assertEquals("Soudal", competidor.getEquipo());
+    public void testObtenerDatosMuestraAnios() {
+        String resultado = competidor.obtenerDatos();
+        assertTrue(resultado.contains("8"));
+        assertTrue(resultado.contains("Julian Alaphilippe"));
     }
 
-    // Prueba años profesional
-    @Test
-    public void testGetAniosProfesional() {
-        assertEquals(8, competidor.getAniosProfesional());
-    }
-
-    // Prueba sobreescritura toString incluye equipo y super
-    @Test
-    public void testToStringIncluyeEquipo() {
-        String resultado = competidor.toString();
-        assertTrue(resultado.contains("Soudal"));
-        assertTrue(resultado.contains("Julian Alaphilippe")); // viene del super
-        assertTrue(resultado.contains("Profesional"));
-    }
-
-    // Prueba sobrecarga obtenerDatos(String etiqueta)
     @Test
     public void testObtenerDatosConEtiqueta() {
         String resultado = competidor.obtenerDatos("FAVORITO");
         assertTrue(resultado.contains("[FAVORITO]"));
         assertTrue(resultado.contains("Julian Alaphilippe"));
+        assertTrue(resultado.contains("8")); // también muestra años
     }
 }
