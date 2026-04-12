@@ -20,9 +20,6 @@ public class CompetenciaVista {
         return Integer.parseInt(JOptionPane.showInputDialog(menu));
     }
 
-    public String pedirNombreEvento() {
-        return JOptionPane.showInputDialog("Ingrese el nombre del evento:");
-    }
     public String pedirNombreEquipo() {
         return JOptionPane.showInputDialog("Ingrese el nombre del equipo:");
     }
@@ -47,8 +44,9 @@ public class CompetenciaVista {
     public String pedirCategoria() {
         return JOptionPane.showInputDialog("Ingrese la categoría (ej: Sub-23):");
     }
-    public int pedirAnios() {
-        return Integer.parseInt(JOptionPane.showInputDialog("Años como profesional:"));
+public int pedirAnios() {
+    return Integer.parseInt(JOptionPane.showInputDialog(
+        "¿Cuántos años lleva de profesional?\n(Si es amateur ingrese 0):"));
     }
     public int pedirPuntos() {
         return Integer.parseInt(JOptionPane.showInputDialog("Ingrese los puntos obtenidos:"));
