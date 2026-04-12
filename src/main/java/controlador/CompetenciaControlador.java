@@ -62,10 +62,16 @@ public void iniciar() {
         double estatura = vista.pedirEstatura();
         double peso    = vista.pedirPeso();
         String categoria = vista.pedirCategoria();
-
+        int anios       = vista.pedirAnios();
+        
+        if (anios > 0) {
+        equipo.agregarCompetidor(new CompetidorProfesional(
+            nombre, edad, pais, ranking, estatura, peso, anios));
+    } else {
         equipo.agregarCompetidor(new CompetidorCategoria(
-        nombre, edad, pais, ranking, estatura, peso, categoria));
-        vista.mostrarMensaje("Competidor agregado correctamente.");
+            nombre, edad, pais, ranking, estatura, peso, categoria));
+    }
+    vista.mostrarMensaje("Competidor agregado correctamente.");
     }
 
     private void verReporte() {
